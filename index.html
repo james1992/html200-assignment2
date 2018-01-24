@@ -5,12 +5,17 @@
   <style type="text/css">
     body {
       font-family: sans-serif;
+      text-align: center;
     }
     img {
       max-width: 100%;
+      border-radius: 25px;
     }
     .red {
       color: red;
+    }
+    #lastImageText {
+      visibility: hidden;
     }
   </style>
 </head>
@@ -18,7 +23,8 @@
   <h1>Whee!</h1>
 
   <img id="roller" src="" alt="roller coaster">
-
+  <p id="loopImageText"><b>Still looping!</b></p>
+  <p id="lastImageText"><b>Are you ready to ride this coaster?</b></p>
   <script type="text/javascript">
     // Description:
 
@@ -54,7 +60,7 @@
 
     // TODO: execute this loop the number of times user requested
     function delayedLoop(){    
-      if(counter <= howMany){
+      if(counter < howMany){
         console.log("Wheee! This is the ", counter, " time we've done this!");
 
         // find value of counter modulo length of sources array-
@@ -70,6 +76,8 @@
         myFunction()
       }
       else{
+        document.getElementById("loopImageText").style.visibility = "hidden";
+        document.getElementById("lastImageText").style.visibility = "visible";
         console.log("Finished the loop")
         return
       }
@@ -93,7 +101,7 @@
     // 3. Add a pause to each loop, so user can see each image as it cycles past.
     //    This is a difficult one!
     
-    // I converted the while loop into a function and created another function to call the loop through the pictures.  The second function is calling the form while loop on a delay.
+    // I converted the while loop into a function and created another function to call the loop through the pictures.  The second function is calling the image loop on a delay.
     
     
   </script>
